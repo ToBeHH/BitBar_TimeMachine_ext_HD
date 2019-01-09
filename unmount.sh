@@ -5,7 +5,7 @@
 # <bitbar.author>Tobias Schulz-Hess</bitbar.author>
 # <bitbar.desc>Checks, if time machine backup is running and if so, ejects HD</bitbar.desc>
 # <bitbar.dependencies>bash/bitbar.dependencies>
-# <bitbar.abouturl>https://source.xing.com/tobias-schulz-hess/</bitbar.abouturl>
+# <bitbar.abouturl>https://github.com/ToBeHH/BitBar_TimeMachine_ext_HD</bitbar.abouturl>
 
 
 
@@ -23,12 +23,12 @@ if [ $? = 0 ]
 #      else
 #             echo "↻|color=#88FF88"
 #      fi
-   echo "↻|color=#88FF88"
+   echo "↻|color=#88FF00"
    echo "---"
-   echo "Unmount | bash='/usr/sbin/diskutil unmount TimeMachine_ExtHD' terminal=false"
-   echo "TimeMachine | bash='open -b com.apple.systempreferences /System/Library/PreferencePanes/TimeMachine.prefPane' terminal=false"
+   echo "Unmount | bash='/usr/sbin/diskutil unmount $TMUUID' terminal=false"
+   echo "TimeMachine | bash='/usr/bin/open -b com.apple.systempreferences /System/Library/PreferencePanes/TimeMachine.prefPane' terminal=false"
 else
    echo "Backup HD not inserted|color=#888888"
    echo "---"
-   echo "Mount | bash='/usr/sbin/diskutil mount TimeMachine_ExtHD' terminal=false"
+   echo "Mount | bash='/usr/sbin/diskutil mount $TMUUID' terminal=false"
 fi
